@@ -12,6 +12,13 @@ module.exports = {
             React: 'react'
         })
     ],
+    devServer: {
+        contentBase: path.join(__dirname, 'public'),
+        compress: true,
+        port: 900,
+        hot: true,
+        open: true
+    },
     module: {
         rules: [
             {

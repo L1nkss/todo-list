@@ -5,12 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "eslint": "eslint --ext .tsx --ext ts src/",
+    "start": "webpack-dev-server",
     "build": "webpack"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "eslint-config-airbnb-typescript": "^9.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
@@ -21,8 +24,14 @@
     "@babel/preset-react": "^7.10.4",
     "@types/react": "^16.9.44",
     "@types/react-dom": "^16.9.8",
+    "@typescript-eslint/eslint-plugin": "^3.7.1",
+    "@typescript-eslint/parser": "^3.7.1",
     "babel-loader": "^8.1.0",
     "css-loader": "^4.2.0",
+    "eslint": "^7.6.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.5",
     "html-webpack-plugin": "^4.3.0",
     "source-map-loader": "^1.0.1",
     "style-loader": "^1.2.1",
