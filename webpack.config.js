@@ -34,12 +34,20 @@ module.exports = {
                 }
             },
             {
-                test: /\.css$/,
+                test: /\.scss$/i,
                 use: [
                     'style-loader',
-                    'css-loader'
+                    'css-loader',
+                    'sass-loader'
                 ]
-            }
+            },
+            // {
+            //     test: /\.css$/,
+            //     use: [
+            //         'style-loader',
+            //         'css-loader'
+            //     ]
+            // }
         ]
     },
     resolve: {

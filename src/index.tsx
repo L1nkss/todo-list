@@ -1,41 +1,41 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import './index.scss';
 
 const App = () => {
   return (
     <div className="todo-app">
       <div className="app-header">
-        <h1>Todo List</h1>
-        <h2>3 осталось, 1 выполнен</h2>
+        <h1 className="app-header__title">Todo List</h1>
+        <h2 className="app-header__task-count">3 осталось, 1 выполнен</h2>
       </div>
-    <div className="top-panel">
-        <input type="text" placeholder="Поиск..." />
-        <div>
-            <button type="button">Все</button>
-            <button type="button">Активные</button>
-            <button type="button">Выполненные</button>
+      <div className="top-panel">
+        <input type="text" placeholder="Поиск..." className="input"/>
+        <div className="button-group">
+            <button type="button" className="button button--active">Все</button>
+            <button type="button" className="button button--grey">Активные</button>
+            <button type="button" className="button button--grey">Выполненные</button>
         </div>
-    </div>
+      </div>
     <ul className="todo-list list-group">
-        <li className="list-group__item">
-            <span>Drink Coffee</span>
-            <button type="button">Удалить</button>
-            <button type="button">Важность</button>
+        <li className="todo-list__item">
+            <span className="todo-list__item-label">Поспать</span>
+            <div className="flex">
+                <button type="button" className="button button--danger button--small"><i className="fa fa-trash-o"></i></button>
+                <button type="button" className="button button--success button--small"><i className="fa fa-exclamation"></i></button>
+            </div>
         </li>
-        <li className="list-group__item">
-            <span>Make Awesome  App</span>
-            <button type="button">Удалить</button>
-            <button type="button">Важность</button>
-        </li>
-        <li className="list-group__item">
-            <span>Have a lunch</span>
-            <button type="button">Удалить</button>
-            <button type="button">Важность</button>
+        <li className="todo-list__item">
+            <span className="todo-list__item-label">Сделать todo list</span>
+            <div className="flex">
+                <button type="button" className="button button--danger button--small"><i className="fa fa-trash-o"></i></button>
+                <button type="button" className="button button--success button--small"><i className="fa fa-exclamation"></i></button>
+            </div>
         </li>
     </ul>
     <form className="add-item-form">
-        <input type="text" placeholder="Что нужно сделать?" />
-        <button>Добавить</button>
+        <input type="text" placeholder="Что нужно сделать?" className="input" />
+        <button className="button button--grey">Добавить</button>
     </form>
     </div>
     )
