@@ -8,6 +8,21 @@
   padding: 4px 12px;
   margin-bottom: -1px;
 
+  // Если пункт выполнен, то перечеркиваем
+  &.done {
+    .todo-list__item-label {
+      text-decoration: line-through;
+    }
+  }
+
+  // Если пункт помечен как важный, выделяем его
+  &.important {
+    .todo-list__item-label {
+      font-weight: 700;
+      color: #4682b4;
+    }
+  }
+
   &-label {
     line-height: 35px;
     cursor: pointer;

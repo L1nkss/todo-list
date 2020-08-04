@@ -1,22 +1,22 @@
 import './style/style.scss';
+import {TTodoItem} from "@components/app/app";
+import TodoListItem from "@components/todo-list/components/todo-list-item";
 
-const TodoList = () => {
+interface ITodoList {
+    todos: Array<TTodoItem>,
+    changeItemStatus: (type: 'important' | 'done', id: number) => void,
+    deleteItem: (id: number) => void
+}
+
+const createTodoItem = (item: TTodoItem, onClickCallback: (type: 'important' | 'done', id: number) => void, deleteItem: (id: number) => void) => {
+    return <TodoListItem key={item.id} item={item} onClickCallback={onClickCallback} deleteItem={deleteItem} />
+};
+
+const TodoList = (props: ITodoList) => {
     return (
         <ul className="todo-list list-group">
-            <li className="todo-list__item">
-                <span className="todo-list__item-label">Поспать</span>
-                <div className="flex">
-                    <button type="button" className="button button--danger button--small"><i className="fa fa-trash-o"></i></button>
-                    <button type="button" className="button button--success button--small"><i className="fa fa-exclamation"></i></button>
-                </div>
-            </li>
-            <li className="todo-list__item">
-                <span className="todo-list__item-label">Сделать todo list</span>
-                <div className="flex">
-                    <button type="button" className="button button--danger button--small"><i className="fa fa-trash-o"></i></button>
-                    <button type="button" className="button button--success button--small"><i className="fa fa-exclamation"></i></button>
-                </div>
-            </li>
+            {props.todos.length !== 0 && props.todos.map((element) => createTodoItem(element, props.changeItemStatus, props.deleteItem))}
+            {props.todos.length === 0 && <li><h2 className="empty-todo-list">Ваш список дел пуст.</h2></li>}
         </ul>
     )
 };
