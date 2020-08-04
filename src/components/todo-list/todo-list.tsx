@@ -16,7 +16,7 @@ const TodoList = (props: ITodoList) => {
     return (
         <ul className="todo-list list-group">
             {props.todos.length !== 0 && props.todos.map((element) => createTodoItem(element, props.changeItemStatus, props.deleteItem))}
-            {props.todos.length === 0 && <li><h2 className="empty-todo-list">Ваш список дел пуст.</h2></li>}
+            {props.todos.length === 0 && <li><h2 className="empty-todo-list">Список пуст.</h2></li>}
         </ul>
     )
 };

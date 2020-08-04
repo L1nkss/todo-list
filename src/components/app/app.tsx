@@ -27,11 +27,7 @@ export default class App extends React.Component<{}, TAppState> {
         super(props);
         this.idCount = 125;
         this.state = {
-            todos: [
-                {label: "Поспать", important: false, done: false, id: 1},
-                {label: "Купить кофе", important: true, done: false, id: 2},
-                {label: "Сделать работу", important: false, done: true, id: 3}
-            ],
+            todos: [],
             searchString: '',
             activeFilter: 'All'
         };
