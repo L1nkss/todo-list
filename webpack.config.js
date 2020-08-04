@@ -41,16 +41,12 @@ module.exports = {
                     'sass-loader'
                 ]
             },
-            // {
-            //     test: /\.css$/,
-            //     use: [
-            //         'style-loader',
-            //         'css-loader'
-            //     ]
-            // }
         ]
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
+        alias: {
+            "@components": path.resolve(__dirname, 'src/components/')
+        }
     }
 };
