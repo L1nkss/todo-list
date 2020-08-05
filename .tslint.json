@@ -9,7 +9,17 @@
         "plugin:@typescript-eslint/recommended"
     ],
     "rules": {
-        "@typescript-eslint/quotes": ["error", "double"],
-        "arrow-body-style": "off"
+        "@typescript-eslint/quotes": ["error", "single"],
+        "arrow-body-style": "off",
+        "prefer-destructuring": ["warning", {
+            "VariableDeclarator": {
+                "array": false,
+                "object": false
+              },
+            "AssignmentExpression": {
+                "array": false,
+                "object": false
+            }
+        }]
     }
 }

@@ -1,33 +1,45 @@
-import './style/style.scss';
+import "./style/style.scss";
 
-interface IAddItemForm {
-    addItem: (name: string) => void
+interface IAddItemFormProps {
+  addItem: (name: string) => void
 }
 
-export default class AddItemForm extends React.Component<IAddItemForm, {}> {
-    private inputRef: React.RefObject<HTMLInputElement>;
+interface IAddItemFormState {
+  name: string | ""
+}
 
-    constructor(props: IAddItemForm) {
-        super(props);
-        this.inputRef = React.createRef();
-        this.handleButtonClick = this.handleButtonClick.bind(this);
-    }
+export default class AddItemForm extends React.Component<IAddItemFormProps, IAddItemFormState> {
+  private inputRef: React.RefObject<HTMLInputElement>;
 
-    handleButtonClick(evt: React.FormEvent): void {
-        evt.preventDefault();
-        const value = this.inputRef.current.value;
-        if (value !== '') {
-            this.props.addItem(value);
-            this.inputRef.current.value = '';
-        }
-    }
+  constructor(props: IAddItemFormProps) {
+    super(props);
+    this.state = {
+      name: "",
+    };
+    this.inputRef = React.createRef();
+    this.handleButtonClick = this.handleButtonClick.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
+  }
 
-    render() {
-        return (
-            <form className="add-item-form">
-                <input ref={this.inputRef} type="text" placeholder="Что нужно сделать?" className="input" />
-                <button className="button button--grey" onClick={this.handleButtonClick}>Добавить</button>
-            </form>
-        )
+  handleNameChange(evt: React.FormEvent<HTMLInputElement>) {
+    this.setState({ name: evt.currentTarget.value });
+  }
+
+  handleButtonClick(evt: React.FormEvent): void {
+    evt.preventDefault();
+    const { name } = this.state;
+    if (name !== "") {
+      this.props.addItem(name);
+      this.setState({ name: "" });
     }
+  }
+
+  render() {
+    return (
+      <form className="add-item-form" onSubmit={this.handleButtonClick}>
+        <input onChange={this.handleNameChange} type="text" placeholder="Что нужно сделать?" className="input" value={this.state.name} />
+        <button type="submit" className="button button--grey">Добавить</button>
+      </form>
+    );
+  }
 }

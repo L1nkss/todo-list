@@ -11,6 +11,11 @@ module.exports = {
     ],
     rules: {
         "@typescript-eslint/quotes": ["error", "double"],
-        "arrow-body-style": "off"
+        "@typescript-eslint/ban-types": "off",
+        "react/react-in-jsx-scope": "off",
+        "arrow-body-style": "off",
+        "react/destructuring-assignment": "off",
+        "no-plusplus": "off",
+        "max-len": ["error", {"code": 150}]
     }
 };
