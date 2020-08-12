@@ -1,2 +1,7 @@
-# TODO List 
-Простенький todo list с использованием typescript
+# Todo lis
+
+#### Технологии
+- React
+- Typescript
+- Enzyme
+- Jest
