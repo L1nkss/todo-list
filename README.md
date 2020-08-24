@@ -1,4 +1,4 @@
-# Todo lis
+# Todo list
 
 #### Технологии
 - React
