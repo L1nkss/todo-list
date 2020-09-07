@@ -1,6 +1,6 @@
 # Todo list
 
-#### Технологии
+#### Технологии:
 - React
 - Typescript
 - Enzyme
